@@ -1,18 +1,46 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook, Download } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import AmTechy from "@/public/amtechy.png";
-
-
+import { FormEvent } from "react";
 
 const Portfolio: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState(false);
-  // const { theme, setTheme } = useTheme();
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
-  // Prevent hydration mismatch
+  
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+  setStatus("");
+
+  const form = e.currentTarget;
+
+  const formData = {
+    name: (form.elements.namedItem("name") as HTMLInputElement).value,
+    email: (form.elements.namedItem("email") as HTMLInputElement).value,
+    message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+  };
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (res.ok) {
+    setStatus("Message sent successfully ✅");
+    form.reset();
+  } else {
+    setStatus("Failed to send message ❌");
+  }
+
+  setLoading(false);
+};
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -38,7 +66,7 @@ const Portfolio: React.FC = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
                 AM
               </div>
-              <span className="font-semibold text-lg hidden sm:block">Abdul Malik</span>
+              <span className="font-semibold text-lg sm:block">Abdul Malik</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -53,20 +81,20 @@ const Portfolio: React.FC = () => {
               ))}
             </div>
 
-            {/* <div className="flex items-center space-x-4">
-              <button
+            <div className="md:hidden flex items-center space-x-4">
+              {/* <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-              </button>
+              </button> */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
               >
                 <Menu className="w-5 h-5" />
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -112,10 +140,21 @@ const Portfolio: React.FC = () => {
                 <span>View Projects</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="w-full cursor-pointer sm:w-auto px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center space-x-2">
+              <a
+                href="/Abdulmalik-CV.pdf"
+                download
+                className="w-full cursor-pointer sm:w-auto px-8 py-4 
+                  bg-gray-100 dark:bg-gray-800 
+                  text-gray-900 dark:text-white 
+                  rounded-lg font-semibold 
+                  hover:bg-gray-200 dark:hover:bg-gray-700 
+                  transition-all duration-300 
+                  flex items-center justify-center space-x-2"
+              >
                 <span>Download CV</span>
                 <Download className="w-5 h-5" />
-              </button>
+              </a>
+
             </div>
 
             <div className="flex items-center justify-center space-x-6 mt-12">
@@ -211,7 +250,7 @@ const Portfolio: React.FC = () => {
             {[
               {
                 title: 'AmTechy',
-                desc: 'Full-stack marketplace with real-time inventory, payment processing, and admin dashboard. Built for scalability and performance.',
+                desc: 'Full-stack edtech platform with AI-guided and tutor-led learning, personalized learning paths, and progress tracking. Built for scalability and learner growth.',
                 tags: ['Next.js', 'Typescript', 'Tailwindcss', 'Firebase'],
                 gradient: 'from-blue-500 to-purple-600',
                 tagBg: 'bg-blue-100 dark:bg-blue-900/30',
@@ -221,7 +260,7 @@ const Portfolio: React.FC = () => {
               },
               {
                 title: 'SkillBridge',
-                desc: 'Cross-platform mobile app with workout tracking, progress analytics, and social features. 50K+ downloads on app stores.',
+                desc: 'Full-stack service marketplace connecting users with verified local skilled workers, featuring profile verification, job requests, and secure communication.',
                 tags: ['Nextjs', 'Firebase', 'Typescript', 'Tailwindcss'],
                 gradient: 'from-green-500 to-teal-600',
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
@@ -231,7 +270,7 @@ const Portfolio: React.FC = () => {
               },
               {
                 title: 'CoachCam',
-                desc: 'Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.',
+                desc: 'Full-stack sports analytics platform with AI-powered video analysis, personalized performance feedback, and actionable insights for athletes and coaches.',
                 tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Cloud'],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
@@ -241,15 +280,15 @@ const Portfolio: React.FC = () => {
               },
               {
                 title: 'FixMate',
-                desc: 'Full-stack marketplace with real-time inventory, payment processing, and admin dashboard. Built for scalability and performance.',
-                tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
+                desc: 'Full-stack mobile application for hiring verified handymen, featuring dynamic service listings, real-time bookings, and AI-powered features.',
+                tags: ['React Navite', 'Expo', 'Firebase', "OpenAI"],
                 gradient: 'from-blue-500 to-purple-600',
                 tagBg: 'bg-blue-100 dark:bg-blue-900/30',
                 tagText: 'text-blue-600 dark:text-blue-400',
               },
               {
                 title: 'AgroLink',
-                desc: 'Cross-platform mobile app with workout tracking, progress analytics, and social features. 50K+ downloads on app stores.',
+                desc: 'Full-stack agritech marketplace connecting farmers directly with buyers, enabling fair trade, global access, and sustainable agriculture.',
                 tags: ['Nextjs', 'Firebase', 'Typescript', '  Tailwindcss'],
                 gradient: 'from-green-500 to-teal-600',
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
@@ -259,7 +298,7 @@ const Portfolio: React.FC = () => {
               },
               {
                 title: 'Buycex',
-                desc: 'Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.',
+                desc: 'Full-stack crypto trading platform enabling users to trade digital assets securely, monitor markets, and capture opportunities in real time.',
                 tags: ['React', 'Javscript', 'Framee-motion'],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
@@ -286,10 +325,10 @@ const Portfolio: React.FC = () => {
                   </div>
                   <div className="flex space-x-3">
                     <a href={project.link} target='_blank' className='flex-1'>
-                    <button className="flex-1 w-full px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
+                    <button className="flex-1 cursor-pointer w-full px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
                       Live Demo
                     </button></a>
-                    <button className="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
+                    <button className="px-4 py-2 cursor-pointer bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
                       <Github className="w-4 h-4" />
                     </button>
                   </div>
@@ -310,36 +349,49 @@ const Portfolio: React.FC = () => {
           <div className="max-w-4xl mx-auto space-y-8">
             {[
               {
-                title: 'Senior Full-Stack Developer',
-                company: 'TechCorp Solutions',
-                period: '2022 - Present',
+                title: 'Frontend Developer',
+                company: 'GEEGSTACK ACADEMY',
+                period: '2025 - Present',
                 Icon: CheckCircle,
                 items: [
-                  'Led development of microservices architecture serving 500K+ daily active users',
-                  'Reduced API response time by 60% through optimization and caching strategies',
-                  'Mentored 5 junior developers and established coding standards across teams'
+                  'Teach students the fundamentals of frontend development including HTML, CSS, and JavaScript',
+                  'Guide learners through building real-world projects with React.js',
+                  'Explain API integration, and responsive design principles in simple, practical terms',
+                  "Encourage hands-on coding, teamwork, and problem-solving during classes."
                 ]
               },
+              // {
+              //   title: 'Hackathon Winner - TechCrunch Disrupt',
+              //   company: 'Best Mobile App Award',
+              //   period: '2023',
+              //   Icon: Trophy,
+              //   items: [
+              //     'Built AI-powered productivity app in 48 hours with React Native and GPT-4',
+              //     'Secured $50K in seed funding and partnership with major tech accelerator'
+              //   ]
+              // },
               {
-                title: 'Hackathon Winner - TechCrunch Disrupt',
-                company: 'Best Mobile App Award',
-                period: '2023',
-                Icon: Trophy,
+                title: 'Freelance Developer',
+                company: 'TOO SOFT COLLECTION',
+                period: '2024',
+                Icon: CheckCircle,
                 items: [
-                  'Built AI-powered productivity app in 48 hours with React Native and GPT-4',
-                  'Secured $50K in seed funding and partnership with major tech accelerator'
+                  'Developed a fully responsive e-commerce website for a clothing brand.',
+                  'Built with React.js and JavaScript to display product images, prices, and details.',
+                  "Implemented dynamic product listings to enhance user experience and engagement."
                 ]
               },
               {
                 title: 'Freelance Developer',
-                company: 'Various Clients',
-                period: '2020 - 2022',
+                company: 'OYAB AUTOS',
+                period: '2025',
                 Icon: CheckCircle,
                 items: [
-                  'Delivered 20+ projects for startups and enterprises across e-commerce, fintech, and healthcare',
-                  'Maintained 5-star rating with 100% client satisfaction and repeat business rate'
+                  'Developed an e-commerce platform for a vehicle dealership.',
+                  'Built with the latest technologies — Next.js, JavaScript, and JSON for data management.',
+                  "Implemented dynamic car listings displaying images, prices, and detailed descriptions."
                 ]
-              }
+              },
             ].map((exp, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
@@ -373,21 +425,21 @@ const Portfolio: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                text: "Alex delivered our mobile app ahead of schedule with exceptional quality. The code is clean, well-documented, and the app performs flawlessly. Highly recommended!",
-                name: 'Sarah Johnson',
-                role: 'CEO, StartupCo',
+                text: "Abdulmalik is an outstanding frontend tutor. He simplifies complex topics, supports students with real projects, and inspires confidence in every session.",
+                name: 'Abdulrosheed Ibrahim',
+                role: 'Geestack Academy',
                 gradient: 'from-blue-500 to-purple-600'
               },
               {
-                text: "Working with Alex was a game-changer for our project. His technical expertise and problem-solving skills helped us scale our platform to handle millions of users.",
-                name: 'Michael Chen',
-                role: 'CTO, TechVentures',
+                text: "He’s fast, reliable, and knows what he’s doing. Abdulmalik built a e ccomerce for our team in just a few days, and everything worked perfectly. Great communication and strong frontend skills.",
+                name: 'Ayobami',
+                role: '2Soft E-CCOMERCE',
                 gradient: 'from-green-500 to-teal-600'
               },
               {
-                text: "Exceptional developer with great communication skills. Alex understood our vision and brought it to life with a beautiful, high-performance web application.",
-                name: 'Emily Rodriguez',
-                role: 'Founder, DesignHub',
+                text: "Abdulmalik exceeded our expectations. He took our Figma design and turned it into a pixel-perfect, mobile-responsive React app. His attention to detail, clean code structure, and smooth integration of APIs made the process effortless.",
+                name: 'Joe Kith',
+                role: 'Marketing Director',
                 gradient: 'from-orange-500 to-red-600'
               }
             ].map((testimonial, idx) => (
@@ -419,15 +471,15 @@ const Portfolio: React.FC = () => {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
-                  <input type="text" className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John Doe" />
+                  <input type="text" name='name' className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John Doe" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john@example.com" />
+                  <input type="email" name="email" className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john@example.com" />
                 </div>
               </div>
 
@@ -438,25 +490,39 @@ const Portfolio: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea rows={6} className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                <textarea rows={6} name="message" className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none" placeholder="Tell me about your project..."></textarea>
               </div>
 
-              <button className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                <span>Send Message</span>
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 
+                  text-white rounded-lg font-semibold flex items-center justify-center space-x-2
+                  transition-all duration-300
+                  ${loading ? "opacity-60 cursor-not-allowed" : "hover:shadow-xl hover:scale-105"}
+                `}
+              >
+                {loading ? "Sending..." : "Send Message"}
                 <Send className="w-5 h-5" />
-              </button>
-            </div>
+            </button>
+
+              {status && (
+                <p className="mt-4 text-center text-sm text-gray-600">
+                  {status}
+                </p>
+              )}
+            </form>
 
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
               <a href="mailto:alex@example.com" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>alex@example.com</span>
+                <span>abdrosheedabdmalikad@gmail.com</span>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
-                <span>LinkedIn</span>
+              <a href="https://x.com/broskiprop94216" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <Twitter className="w-5 h-5" />
+                <span>Twitter</span>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <a href="https://github.com/Ademolaadisa010" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                 <Github className="w-5 h-5" />
                 <span>GitHub</span>
               </a>
@@ -468,7 +534,7 @@ const Portfolio: React.FC = () => {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">© 2024 Alex Morgan. All rights reserved.</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">© 2024 Abdul Malik. All rights reserved.</p>
             <div className="flex items-center space-x-6 mt-4 sm:mt-0">
               <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Terms of Service</a>
