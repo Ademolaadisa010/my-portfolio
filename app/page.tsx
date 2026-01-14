@@ -1,8 +1,11 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
-import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook } from 'lucide-react';
+import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook, Download } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import AmTechy from "@/public/amtechy.png";
+
+
 
 const Portfolio: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -104,17 +107,14 @@ const Portfolio: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                className="w-full cursor-pointer sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full sm:w-auto px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Download Cv</span>
-                <Mail className="w-5 h-5" />
+              <button className="w-full cursor-pointer sm:w-auto px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center space-x-2">
+                <span>Download CV</span>
+                <Download className="w-5 h-5" />
               </button>
             </div>
 
@@ -212,26 +212,32 @@ const Portfolio: React.FC = () => {
               {
                 title: 'AmTechy',
                 desc: 'Full-stack marketplace with real-time inventory, payment processing, and admin dashboard. Built for scalability and performance.',
-                tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
+                tags: ['Next.js', 'Typescript', 'Tailwindcss', 'Firebase'],
                 gradient: 'from-blue-500 to-purple-600',
                 tagBg: 'bg-blue-100 dark:bg-blue-900/30',
-                tagText: 'text-blue-600 dark:text-blue-400'
+                tagText: 'text-blue-600 dark:text-blue-400',
+                image: "/amtechy.png",
+                link: "https://am-techy.vercel.app/"
               },
               {
                 title: 'SkillBridge',
                 desc: 'Cross-platform mobile app with workout tracking, progress analytics, and social features. 50K+ downloads on app stores.',
-                tags: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
+                tags: ['Nextjs', 'Firebase', 'Typescript', 'Tailwindcss'],
                 gradient: 'from-green-500 to-teal-600',
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
-                tagText: 'text-green-600 dark:text-green-400'
+                tagText: 'text-green-600 dark:text-green-400',
+                image: "/skillbridge.png",
+                link: "https://skill-bridge-liard-nine.vercel.app/"
               },
               {
                 title: 'CoachCam',
                 desc: 'Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.',
-                tags: ['React', 'TypeScript', 'D3.js', 'AWS'],
+                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Cloud'],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
-                tagText: 'text-orange-600 dark:text-orange-400'
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/coachcam.png",
+                link: "https://coach-cam-nu.vercel.app/"
               },
               {
                 title: 'FixMate',
@@ -239,28 +245,34 @@ const Portfolio: React.FC = () => {
                 tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
                 gradient: 'from-blue-500 to-purple-600',
                 tagBg: 'bg-blue-100 dark:bg-blue-900/30',
-                tagText: 'text-blue-600 dark:text-blue-400'
+                tagText: 'text-blue-600 dark:text-blue-400',
               },
               {
                 title: 'AgroLink',
                 desc: 'Cross-platform mobile app with workout tracking, progress analytics, and social features. 50K+ downloads on app stores.',
-                tags: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
+                tags: ['Nextjs', 'Firebase', 'Typescript', '  Tailwindcss'],
                 gradient: 'from-green-500 to-teal-600',
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
-                tagText: 'text-green-600 dark:text-green-400'
+                tagText: 'text-green-600 dark:text-green-400',
+                image: "/agrolink.png",
+                link: "https://agro-links.vercel.app/"
               },
               {
                 title: 'Buycex',
                 desc: 'Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.',
-                tags: ['React', 'TypeScript', 'D3.js', 'AWS'],
+                tags: ['React', 'Javscript', 'Framee-motion'],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
-                tagText: 'text-orange-600 dark:text-orange-400'
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/buycex.png",
+                link: "https://abdulmalik-buycex-14nu.vercel.app/"
               }
             ].map((project, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 group">
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="w-full h-full bg-black/20 group-hover:scale-110 transition-transform duration-300"></div>
+                <div className={`h-48 bg-gradient-to-br bg-cover bg-center ${project.gradient} relative overflow-hidden`}>
+                  <div className="w-full h-full bg-black/20 group-hover:scale-110 transition-transform duration-300">
+                    <img src={`${project.image}`} alt='amtechy' />
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
@@ -273,9 +285,10 @@ const Portfolio: React.FC = () => {
                     ))}
                   </div>
                   <div className="flex space-x-3">
-                    <button className="flex-1 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
+                    <a href={project.link} target='_blank' className='flex-1'>
+                    <button className="flex-1 w-full px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
                       Live Demo
-                    </button>
+                    </button></a>
                     <button className="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
                       <Github className="w-4 h-4" />
                     </button>
@@ -287,7 +300,6 @@ const Portfolio: React.FC = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -351,7 +363,6 @@ const Portfolio: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -400,7 +411,6 @@ const Portfolio: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
