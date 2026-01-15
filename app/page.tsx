@@ -256,7 +256,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 tagBg: 'bg-blue-100 dark:bg-blue-900/30',
                 tagText: 'text-blue-600 dark:text-blue-400',
                 image: "/amtechy.png",
-                link: "https://am-techy.vercel.app/"
+                link: "https://am-techy.vercel.app/",
+                repo: "https://github.com/Ademolaadisa010/AmTechy.git",
               },
               {
                 title: 'SkillBridge',
@@ -266,7 +267,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
                 tagText: 'text-green-600 dark:text-green-400',
                 image: "/skillbridge.png",
-                link: "https://skill-bridge-liard-nine.vercel.app/"
+                link: "https://skill-bridge-liard-nine.vercel.app/",
+                repo: "https://github.com/Ademolaadisa010/SkillBridge.git",
               },
               {
                 title: 'CoachCam',
@@ -276,7 +278,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
                 tagText: 'text-orange-600 dark:text-orange-400',
                 image: "/coachcam.png",
-                link: "https://coach-cam-nu.vercel.app/"
+                link: "https://coach-cam-nu.vercel.app/",
+                repo: "https://github.com/Bigoluwagentle/CoachCam.git"
               },
               {
                 title: 'FixMate',
@@ -294,7 +297,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 tagBg: 'bg-green-100 dark:bg-green-900/30',
                 tagText: 'text-green-600 dark:text-green-400',
                 image: "/agrolink.png",
-                link: "https://agro-links.vercel.app/"
+                link: "https://agro-links.vercel.app/",
+                repo: "https://github.com/Bigoluwagentle/AgroLink.git"
               },
               {
                 title: 'Buycex',
@@ -304,7 +308,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
                 tagText: 'text-orange-600 dark:text-orange-400',
                 image: "/buycex.png",
-                link: "https://abdulmalik-buycex-14nu.vercel.app/"
+                link: "https://abdulmalik-buycex-14nu.vercel.app/",
+                repo: "https://github.com/Bigoluwagentle/buycex-app.git"
               }
             ].map((project, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 group">
@@ -328,9 +333,10 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                     <button className="flex-1 cursor-pointer w-full px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
                       Live Demo
                     </button></a>
+                    <a href={project.repo}>
                     <button className="px-4 py-2 cursor-pointer bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
                       <Github className="w-4 h-4" />
-                    </button>
+                    </button></a>
                   </div>
                 </div>
               </div>
