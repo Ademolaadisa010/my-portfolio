@@ -333,7 +333,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                     <button className="flex-1 cursor-pointer w-full px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center text-sm">
                       Live Demo
                     </button></a>
-                    <a href={project.repo}>
+                    <a href={project.repo} target='_blank'>
                     <button className="px-4 py-2 cursor-pointer bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
                       <Github className="w-4 h-4" />
                     </button></a>
