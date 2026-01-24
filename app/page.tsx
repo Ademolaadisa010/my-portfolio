@@ -1,4 +1,5 @@
 'use client';
+import { motion } from "framer-motion"
 import React, { useState, useEffect } from 'react';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook, Download } from 'lucide-react';
 import { FormEvent } from "react";
@@ -59,7 +60,11 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
   return (
     <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
+      <motion.nav 
+      initial={{y:-50}}
+      whileInView={{y:0}}
+      transition={{duration:2}}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
@@ -113,7 +118,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
             </div>
           </div>
         )}
-      </nav>
+      </motion.nav>
 
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -123,24 +128,38 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Available for opportunities</span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+            <motion.h1 
+              initial={{y:100}}
+              whileInView={{y:0}}
+              transition={{duration:2}}
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Front-End & Mobile</span>
               <br />Developer
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto">
+            <motion.p 
+              initial={{y:100}}
+              whileInView={{y:0}}
+              transition={{duration:2}}
+              className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto">
               Building scalable, performance-driven applications that solve real-world problems with clean code and exceptional user experiences.
-            </p>
+            </motion.p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
+              <motion.button
                 onClick={() => scrollToSection('projects')}
                 className="w-full cursor-pointer sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                initial={{opacity:0}}
+                whileInView={{opacity:1}}
+                transition={{delay:1.5, type:"spring", stiffness:200}}
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
-              <a
+              </motion.button>
+              <motion.a
+                initial={{opacity:0}}
+                whileInView={{opacity:1}}
+                transition={{delay:1.6, type:"spring", stiffness:200}}
                 href="/Abdulmalik-CV.pdf"
                 download
                 className="w-full cursor-pointer sm:w-auto px-8 py-4 
@@ -153,7 +172,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               >
                 <span>Download CV</span>
                 <Download className="w-5 h-5" />
-              </a>
+              </motion.a>
 
             </div>
 
@@ -187,19 +206,25 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div 
+            
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {[
               { Icon: Code2, title: 'Clean Code', desc: 'Writing maintainable, scalable code following industry best practices and design patterns.', bgColor: 'bg-blue-100 dark:bg-blue-900/30', iconColor: 'text-blue-600 dark:text-blue-400' },
               { Icon: Zap, title: 'Performance', desc: 'Optimizing applications for speed, efficiency, and exceptional user experiences.', bgColor: 'bg-purple-100 dark:bg-purple-900/30', iconColor: 'text-purple-600 dark:text-purple-400' },
               { Icon: Users, title: 'Collaboration', desc: 'Working effectively in teams, communicating clearly, and delivering results together.', bgColor: 'bg-green-100 dark:bg-green-900/30', iconColor: 'text-green-600 dark:text-green-400' }
             ].map(({ Icon, title, desc, bgColor, iconColor }, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+              <motion.div key={idx} 
+                  initial={{opacity:0, y:100}}
+                  whileInView={{opacity:1, y:0}}
+                  transition={{type:"spring", stiffness:200}}
+              className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
                 <div className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mb-4`}>
                   <Icon className={`w-6 h-6 ${iconColor}`} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{title}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -399,7 +424,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 ]
               },
             ].map((exp, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+              <div key={idx} className="sticky top-0 bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
