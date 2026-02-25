@@ -391,16 +391,18 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                   "Encourage hands-on coding, teamwork, and problem-solving during classes."
                 ]
               },
-              // {
-              //   title: 'Hackathon Winner - TechCrunch Disrupt',
-              //   company: 'Best Mobile App Award',
-              //   period: '2023',
-              //   Icon: Trophy,
-              //   items: [
-              //     'Built AI-powered productivity app in 48 hours with React Native and GPT-4',
-              //     'Secured $50K in seed funding and partnership with major tech accelerator'
-              //   ]
-              // },
+              {
+                title: 'Mobile Developer',
+                company: 'Suhoor – Islamic Companion App',
+                period: '2026',
+                Icon: CheckCircle,
+                items: [
+                  'Built a cross-platform Islamic mobile application using React Native (Expo) and Expo Router',
+                  'Developed features including Suhoor reminders, AI-powered Islamic Q&A, and Quran integration',
+                  'Developed features including Suhoor reminders, AI-powered Islamic Q&A, and Quran integration',
+                  'Implemented authentication flow and protected routes'
+                ]
+              },
               {
                 title: 'Freelance Developer',
                 company: 'TOO SOFT COLLECTION',
@@ -419,7 +421,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 Icon: CheckCircle,
                 items: [
                   'Developed an e-commerce platform for a vehicle dealership.',
-                  'Built with the latest technologies — Next.js, JavaScript, and JSON for data management.',
+                  'Built with the latest technologies Next.js, JavaScript, and JSON for data management.',
                   "Implemented dynamic car listings displaying images, prices, and detailed descriptions."
                 ]
               },
