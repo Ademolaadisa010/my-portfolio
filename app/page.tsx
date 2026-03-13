@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import React, { useState, useEffect } from 'react';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook, Download } from 'lucide-react';
 import { FormEvent } from "react";
+import Footer from "@/components/footer";
 
 const Portfolio: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -87,12 +88,6 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
             </div>
 
             <div className="md:hidden flex items-center space-x-4">
-              {/* <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              >
-                {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-              </button> */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
@@ -380,6 +375,19 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
           <div className="max-w-4xl mx-auto space-y-8">
             {[
               {
+                title: 'Senior Frontend Developer',
+                company: 'OBEKS AI',
+                period: '2026 - Present',
+                Icon: CheckCircle,
+                items: [
+                  'Developed and maintained responsive web applications for clients.',
+                  'Built user interfaces using modern frontend technologies.',
+                  'Collaborated with designers and backend developers to deliver functional products.',
+                  "Optimized website performance and improved user experience.",
+                  "Reviewed code and supported other developers in the team."
+                ]
+              },
+              {
                 title: 'Frontend Developer',
                 company: 'GEEGSTACK ACADEMY',
                 period: '2025 - Present',
@@ -401,6 +409,31 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                   'Developed features including Suhoor reminders, AI-powered Islamic Q&A, and Quran integration',
                   'Developed features including Suhoor reminders, AI-powered Islamic Q&A, and Quran integration',
                   'Implemented authentication flow and protected routes'
+                ]
+              },
+              {
+                title: 'Mobile Developer',
+                company: 'FixMate',
+                period: '2025',
+                Icon: CheckCircle,
+                items: [
+                  'Developed the FixMate app, a platform where users can find verified workers for services.',
+                  'Built and maintained mobile app features using modern frameworks React Native, Expo.',
+                  'Ensured smooth user experience and responsive design for multiple devices.',
+                  'Tested and debugged app to deliver a reliable and high-quality product.'
+                ]
+              },
+              {
+                title: 'Frontend Developer Intership',
+                company: 'OBEKS AI',
+                period: '2025 - 2026',
+                Icon: CheckCircle,
+                items: [
+                  'Led a team of developers in designing and building websites for client projects.',
+                  'Coordinated tasks, reviewed code, and ensured project deadlines were met.',
+                  'Collaborated with designers and developers to deliver responsive and user-friendly websites.',
+                  "Worked with modern web technologies to implement functional and scalable solutions.",
+                  "Communicated with team members to maintain project quality and progress."
                 ]
               },
               {
@@ -471,8 +504,8 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               },
               {
                 text: "Abdulmalik exceeded our expectations. He took our Figma design and turned it into a pixel-perfect, mobile-responsive React app. His attention to detail, clean code structure, and smooth integration of APIs made the process effortless.",
-                name: 'Joe Kith',
-                role: 'Marketing Director',
+                name: 'Oyab Autos',
+                role: 'Car Dealer',
                 gradient: 'from-orange-500 to-red-600'
               }
             ].map((testimonial, idx) => (
@@ -564,18 +597,74 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         </div>
       </section>
 
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
+      <footer className="py-8 gap-10 flex px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
+        <div className="w-[25%] min-h-5">
+          {/* <div className="flex flex-col sm:flex-row items-center justify-between">
             <p className="text-gray-600 dark:text-gray-400 text-sm">© 2024 Abdul Malik. All rights reserved.</p>
             <div className="flex items-center space-x-6 mt-4 sm:mt-0">
               <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Terms of Service</a>
             </div>
+          </div> */}
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                AM
+              </div>
+              <span className="font-semibold text-lg sm:block">Abdul Malik</span>
           </div>
+          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">I help businesses grow online by building fast, modern, and responsive web and mobile apps.</p>
+        </div>
+        <div className="w-[25%] min-h-5">
+          <h4 className="font-semibold mb-4">Quick Links</h4>
+          <div className="hidden md:flex gap-2 md:flex-col text-start">
+              {['about', 'skills', 'projects', 'experience', 'contact'].map((item) => (
+                <a
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-gray-600 dark:text-gray-400 cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors capitalize"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+        </div>
+        <div className="w-[25%] min-h-5">
+          <h4 className="font-semibold mb-4">Services</h4>
+          <div className="hidden md:flex gap-2 md:flex-col text-start">
+              {['Frontend Web Development', 'Mobile App Development', 'UI/UX Implementation', 'Custom Web Applications', 'Maintenance & Support'].map((item) => (
+                <a
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-gray-600 dark:text-gray-400 cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors capitalize"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+        </div>
+        <div className="w-[25%] min-h-5">
+          <h4 className="font-semibold mb-4">Social Media</h4>
+          <div className="flex items-center space-x-6 mt-12">
+              {[
+                { Icon: Github, href: 'https://github.com/Ademolaadisa010' },
+                { Icon: Facebook, href: 'https://web.facebook.com/base.man.304047?_rdc=1&_rdr#' },
+                { Icon: Twitter, href: 'https://x.com/broskiprop94216' }
+              ].map(({ Icon, href }, idx) => (
+                <a
+                  key={idx}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
         </div>
       </footer>
     </div>
+    
   );
 };
 
