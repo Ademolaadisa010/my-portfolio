@@ -597,15 +597,9 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         </div>
       </section>
 
-      <footer className="py-8 gap-10 flex px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
+      <footer className="py-8 gap-10 flex md:flex-row flex-col px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
         <div className="w-[25%] min-h-5">
-          {/* <div className="flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">© 2024 Abdul Malik. All rights reserved.</p>
-            <div className="flex items-center space-x-6 mt-4 sm:mt-0">
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm">Terms of Service</a>
-            </div>
-          </div> */}
+         
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
                 AM
@@ -616,7 +610,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         </div>
         <div className="w-[25%] min-h-5">
           <h4 className="font-semibold mb-4">Quick Links</h4>
-          <div className="hidden md:flex gap-2 md:flex-col text-start">
+          <div className="flex gap-2 flex-col text-start">
               {['about', 'skills', 'projects', 'experience', 'contact'].map((item) => (
                 <a
                   key={item}
@@ -630,7 +624,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         </div>
         <div className="w-[25%] min-h-5">
           <h4 className="font-semibold mb-4">Services</h4>
-          <div className="hidden md:flex gap-2 md:flex-col text-start">
+          <div className="flex gap-2 flex-col text-start">
               {['Frontend Web Development', 'Mobile App Development', 'UI/UX Implementation', 'Custom Web Applications', 'Maintenance & Support'].map((item) => (
                 <a
                   key={item}
