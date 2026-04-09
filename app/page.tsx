@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import React, { useState, useEffect } from 'react';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter, Mail, ArrowRight, Code2, Zap, Users, Layout, Server, Smartphone, Wrench, CheckCircle, Trophy, Star, Send, Facebook, Download } from 'lucide-react';
 import { FormEvent } from "react";
-import Footer from "@/components/footer";
 
 const Portfolio: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -128,7 +127,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               whileInView={{y:0}}
               transition={{duration:2}}
             className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Front-End & Mobile</span>
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Full-Stack & Mobile</span>
               <br />Developer
             </motion.h1>
             
@@ -137,7 +136,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               whileInView={{y:0}}
               transition={{duration:2}}
               className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto">
-              Building scalable, performance-driven applications that solve real-world problems with clean code and exceptional user experiences.
+              Building scalable, performance-driven applications using modern technologies and cloud services like Firebase to solve real-world problems.
             </motion.p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -197,7 +196,11 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">About Me</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm a passionate Front-End and Mobile Developer with a proven track record of building scalable, high-performance applications. My approach combines clean architecture, modern technologies, and user-centric design to deliver solutions that make a real impact. Whether it's optimizing backend systems, crafting intuitive mobile experiences, or architecting cloud infrastructure, I focus on writing maintainable code that scales with your business needs.
+              I am a passionate Frontend and Mobile Developer with experience building scalable, high-performance applications. I have successfully shipped multiple projects, delivering reliable and user-focused solutions from concept to deployment.
+
+My approach combines clean architecture, modern technologies, and user-centric design to create products that make a real impact. I focus on writing maintainable, efficient code while ensuring seamless user experiences across web and mobile platforms.
+
+I enjoy working both independently and in collaborative teams, continuously improving my skills and delivering solutions that scale with business needs.
             </p>
           </div>
 
@@ -291,6 +294,28 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 repo: "https://github.com/Ademolaadisa010/SkillBridge.git",
               },
               {
+                title: 'EduFlow',
+                desc: 'Full-stack school management system enabling real-time attendance tracking, online fee collection, and seamless result management.',
+                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Firebase'],
+                gradient: 'from-orange-500 to-red-600',
+                tagBg: 'bg-orange-100 dark:bg-orange-900/30',
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/eduflow.png",
+                link: "https://edu-flow-alpha.vercel.app",
+                repo: "https://github.com/Ademolaadisa010/EduFlow.git"
+              },
+              {
+                title: 'EduBoost AI',
+                desc: 'Full-stack AI learning platform that converts study materials into interactive summaries, quizzes, and explanations, with built-in peer and mentor collaboration.',
+                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Gemini', "Firebase"],
+                gradient: 'from-orange-500 to-red-600',
+                tagBg: 'bg-orange-100 dark:bg-orange-900/30',
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/eduboost.png",
+                link: "https://edu-boost-ai.vercel.app",
+                repo: "https://github.com/Ademolaadisa010/EduBoost-ai.git"
+              },
+              {
                 title: 'CoachCam',
                 desc: 'Full-stack sports analytics platform with AI-powered video analysis, personalized performance feedback, and actionable insights for athletes and coaches.',
                 tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Cloud'],
@@ -300,6 +325,17 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                 image: "/coachcam.png",
                 link: "https://coach-cam-nu.vercel.app/",
                 repo: "https://github.com/Bigoluwagentle/CoachCam.git"
+              },
+              {
+                title: 'AgroAI',
+                desc: 'Full-stack AI agriculture platform that detects crop diseases, provides instant recommendations, and improves farming productivity.',
+                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', "Open API"],
+                gradient: 'from-orange-500 to-red-600',
+                tagBg: 'bg-orange-100 dark:bg-orange-900/30',
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/agroai.png",
+                link: "https://agro-ai-agvc.vercel.app/",
+                repo: "https://github.com/Ademolaadisa010/AgroAI.git"
               },
               {
                 title: 'FixMate',
@@ -434,6 +470,32 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
                   'Collaborated with designers and developers to deliver responsive and user-friendly websites.',
                   "Worked with modern web technologies to implement functional and scalable solutions.",
                   "Communicated with team members to maintain project quality and progress."
+                ]
+              },
+              {
+                title: 'Frontend Developer Intership',
+                company: 'Truemind',
+                period: '2026',
+                Icon: CheckCircle,
+                items: [
+                  'Served as Frontend Lead at Trueminds, guiding the development of responsive and user-friendly web interfaces.',
+                  'Built and delivered full-stack web applications independently, from concept to deployment.',
+                  'Collaborated with backend developers and designers to integrate APIs and ensure seamless user experience.',
+                  "Reviewed code, provided feedback, and ensured frontend consistency and best practices across projects.",
+                  "Optimized application performance through testing, debugging, and continuous improvement."
+                ]
+              },
+              {
+                title: 'Frontend Developer Intership',
+                company: 'HNG',
+                period: '2025',
+                Icon: CheckCircle,
+                items: [
+                  'Collaborated with a team of developers to design and build real-world web applications during the HNG Internship.',
+                  'Contributed to frontend and backend development using modern web technologies.',
+                  'Participated in code reviews, debugging, and feature implementation to improve product quality.',
+                  "Maintained clear communication and teamwork to meet project goals and deadlines.",
+                  "Worked closely with designers and teammates to deliver responsive and user-friendly interfaces."
                 ]
               },
               {
@@ -598,7 +660,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       </section>
 
       <footer className="py-8 gap-10 flex md:flex-row flex-col px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
-        <div className="w-[25%] min-h-5">
+        <div className="md:w-[25%] w-[100%] min-h-5">
          
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
@@ -608,7 +670,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
           </div>
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">I help businesses grow online by building fast, modern, and responsive web and mobile apps.</p>
         </div>
-        <div className="w-[25%] min-h-5">
+        <div className="md:w-[25%] w-full min-h-5">
           <h4 className="font-semibold mb-4">Quick Links</h4>
           <div className="flex gap-2 flex-col text-start">
               {['about', 'skills', 'projects', 'experience', 'contact'].map((item) => (
@@ -622,7 +684,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               ))}
             </div>
         </div>
-        <div className="w-[25%] min-h-5">
+        <div className="md:w-[25%] w-full min-h-5">
           <h4 className="font-semibold mb-4">Services</h4>
           <div className="flex gap-2 flex-col text-start">
               {['Frontend Web Development', 'Mobile App Development', 'UI/UX Implementation', 'Custom Web Applications', 'Maintenance & Support'].map((item) => (
@@ -636,7 +698,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
               ))}
             </div>
         </div>
-        <div className="w-[25%] min-h-5">
+        <div className="md:w-[25%] w-full min-h-5">
           <h4 className="font-semibold mb-4">Social Media</h4>
           <div className="flex items-center space-x-6 mt-12">
               {[
