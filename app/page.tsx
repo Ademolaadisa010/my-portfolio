@@ -297,13 +297,24 @@ I enjoy working both independently and in collaborative teams, continuously impr
               {
                 title: 'Nervo',
                 desc: 'Full-stack AI Interview platform that helps job seekers or student build their confidence and prepare them for real interview.',
-                tags: ['Nextjs', 'TypeScript', 'Gemini', 'Firebase'],
+                tags: ['Nextjs', 'TypeScript', 'Gemini', 'Firebase', "Tailwindcss"],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
                 tagText: 'text-orange-600 dark:text-orange-400',
                 image: "/nervo.png",
                 link: "https://nervo.vercel.app/",
                 repo: "https://github.com/Ademolaadisa010/EduFlow.git"
+              },
+              {
+                title: 'TokenShield',
+                desc: 'AI-powered crypto safety platform helping users analyze digital assets, detect risky tokens, avoid FOMO trading, and make smarter trading decisions in real time.',
+                tags: ['Nextjs', 'Typescript', 'Gemini', "web3"],
+                gradient: 'from-orange-500 to-red-600',
+                tagBg: 'bg-orange-100 dark:bg-orange-900/30',
+                tagText: 'text-orange-600 dark:text-orange-400',
+                image: "/token.png",
+                link: "https://token-shield.vercel.app/",
+                repo: "https://github.com/Ademolaadisa010/TokenShield.git"
               },
               {
                 title: 'EduFlow',
@@ -319,7 +330,7 @@ I enjoy working both independently and in collaborative teams, continuously impr
               {
                 title: 'EduBoost AI',
                 desc: 'Full-stack AI learning platform that converts study materials into interactive summaries, quizzes, and explanations, with built-in peer and mentor collaboration.',
-                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Gemini', "Firebase"],
+                tags: ['Nextjs', 'TypeScript', 'Tailwindcss', 'Gemini'],
                 gradient: 'from-orange-500 to-red-600',
                 tagBg: 'bg-orange-100 dark:bg-orange-900/30',
                 tagText: 'text-orange-600 dark:text-orange-400',
@@ -360,17 +371,7 @@ I enjoy working both independently and in collaborative teams, continuously impr
                 link: "https://agro-ai-agvc.vercel.app/",
                 repo: "https://github.com/Ademolaadisa010/AgroAI.git"
               },
-              {
-                title: 'Buycex',
-                desc: 'Full-stack crypto trading platform enabling users to trade digital assets securely, monitor markets, and capture opportunities in real time.',
-                tags: ['React', 'Javscript', 'Framee-motion'],
-                gradient: 'from-orange-500 to-red-600',
-                tagBg: 'bg-orange-100 dark:bg-orange-900/30',
-                tagText: 'text-orange-600 dark:text-orange-400',
-                image: "/buycex.png",
-                link: "https://abdulmalik-buycex-14nu.vercel.app/",
-                repo: "https://github.com/Bigoluwagentle/buycex-app.git"
-              }
+              
             ].map((project, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 group">
                 <div className={`h-48 bg-gradient-to-br bg-cover bg-center ${project.gradient} relative overflow-hidden`}>
